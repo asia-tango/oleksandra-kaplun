@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oleksandra-kaplun.web.app/sitemap.xml

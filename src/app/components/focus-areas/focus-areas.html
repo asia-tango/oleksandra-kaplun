@@ -1,0 +1,37 @@
+<section class="focus" appScrollReveal>
+  <div class="focus__inner">
+    <h2 class="focus__heading">{{ i18n.dict().focus.heading }}</h2>
+
+    <div class="focus__list">
+      @for (item of i18n.dict().focus.items; track item.title; let i = $index) {
+        <div class="focus__item">
+          <button
+            type="button"
+            class="focus__trigger"
+            [attr.aria-expanded]="openIndex() === i"
+            [attr.aria-controls]="'focus-panel-' + i"
+            (click)="toggle(i)"
+          >
+            <span class="focus__trigger-title" [class.is-open]="openIndex() === i">{{
+              item.title
+            }}</span>
+            <span class="focus__icon" [class.is-open]="openIndex() === i" aria-hidden="true">
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+
+          <div
+            class="focus__panel"
+            [id]="'focus-panel-' + i"
+            [class.is-open]="openIndex() === i"
+          >
+            <div class="focus__panel-inner">
+              <p>{{ item.body }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

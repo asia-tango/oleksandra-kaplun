@@ -1,0 +1,50 @@
+:root {
+  --color-bg-light: #e8e6e0;
+  --color-bg-dark: #1a1a18;
+  --color-bg-dark-alt: #2c2c2a;
+
+  --color-ink: #1a1a18;
+  --color-ink-muted: #1a1a1899;
+  --color-paper: #e8e6e0;
+  --color-paper-muted: #e8e6e0b3;
+
+  --color-accent: #3fd9b0;
+  --color-accent-deep: #05372e;
+
+  --color-border-on-light: #1a1a1826;
+  --color-border-on-dark: #e8e6e026;
+
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:
+    system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  --container-max: 74rem;
+  --container-pad: clamp(1.25rem, 4vw, 3rem);
+
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 520ms;
+
+  --glow-accent: 0 0 0.25rem rgba(63, 217, 176, 0.55), 0 0 1.25rem rgba(63, 217, 176, 0.35);
+  --glow-accent-text: 0 0 0.6rem rgba(63, 217, 176, 0.65);
+}
+
+@media (max-width: 860px) {
+  :root {
+    --space-2xl: 4rem;
+    --space-xl: 2.5rem;
+    --space-lg: 1.5rem;
+  }
+}

@@ -1,0 +1,33 @@
+<section class="testimonials" id="testimonials" appScrollReveal>
+  <div class="testimonials__inner">
+    <h2 class="testimonials__heading">{{ i18n.dict().testimonials.heading }}</h2>
+
+    <div class="testimonials__scroller">
+      @for (item of testimonials; track item.src; let i = $index) {
+        <button type="button" class="testimonials__card" (click)="open(i)" [attr.aria-label]="item.alt">
+          <img [ngSrc]="item.src" [width]="item.width" [height]="item.height" [alt]="item.alt" />
+        </button>
+      }
+    </div>
+
+    <a class="testimonials__link" href="https://www.linkedin.com/in/oleksandra-kaplun/details/recommendations/" target="_blank" rel="noopener">
+      {{ i18n.dict().testimonials.linkedinLink }}
+    </a>
+  </div>
+
+  @if (activeTestimonial(); as item) {
+    <div class="testimonials__lightbox" (click)="close()">
+      <button type="button" class="testimonials__lightbox-close" (click)="close()" aria-label="Close">
+        &times;
+      </button>
+      <img
+        class="testimonials__lightbox-img"
+        [ngSrc]="item.src"
+        [width]="item.width"
+        [height]="item.height"
+        [alt]="item.alt"
+        (click)="$event.stopPropagation()"
+      />
+    </div>
+  }
+</section>

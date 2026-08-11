@@ -1,0 +1,89 @@
+@use 'mixins';
+
+.work {
+  @include mixins.section-dark;
+  @include mixins.reveal-base;
+}
+
+.work__inner {
+  @include mixins.container;
+  padding-block: var(--space-2xl);
+}
+
+.work__heading {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: var(--space-xl);
+}
+
+.work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.work__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border-on-dark);
+  border-radius: var(--radius-md);
+  @include mixins.glow-hover;
+}
+
+.work__card-name {
+  font-size: 1.15rem;
+}
+
+.work__card-stack {
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.work__card-fact {
+  color: var(--color-paper-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.work__card-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-2xs);
+}
+
+.work__card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  line-height: 1;
+  background: transparent;
+  @include mixins.glow-hover;
+
+  svg {
+    width: 0.85rem;
+    height: 0.85rem;
+    flex: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .work__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .work__inner {
+    padding-block: var(--space-xl);
+  }
+}

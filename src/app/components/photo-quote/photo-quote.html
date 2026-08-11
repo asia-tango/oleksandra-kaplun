@@ -1,0 +1,22 @@
+<section class="photo-quote" appScrollReveal>
+  <div class="photo-quote__inner">
+    <div class="photo-quote__photo">
+      <div class="photo-quote__photo-frame">
+        <img ngSrc="/images/photos/js-books.png" fill alt="Oleksandra Kaplun" />
+      </div>
+    </div>
+
+    <div class="photo-quote__quote">
+      <blockquote>
+        <p>
+          {{ quoteParts()[0][0] }}<span class="photo-quote__dash">–</span>{{
+            quoteParts()[0][1]
+          }}<br />
+          {{ quoteParts()[1][0] }}<span class="photo-quote__dash">–</span>{{
+            quoteParts()[1][1]
+          }}
+        </p>
+      </blockquote>
+    </div>
+  </div>
+</section>

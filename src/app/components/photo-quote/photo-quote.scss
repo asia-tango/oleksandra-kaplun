@@ -1,0 +1,86 @@
+@use 'mixins';
+
+.photo-quote {
+  @include mixins.section-dark;
+  @include mixins.reveal-base;
+}
+
+.photo-quote__inner {
+  @include mixins.container;
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding-block: var(--space-md);
+}
+
+.photo-quote__photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-width: 24rem;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: linear-gradient(160deg, var(--color-bg-dark-alt), var(--color-bg-dark));
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.photo-quote__quote blockquote {
+  margin: 0;
+  border-left: 2px solid var(--color-accent);
+  padding-left: var(--space-lg);
+}
+
+.photo-quote__quote p {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(0.9rem, 1.7vw, 1.3rem);
+  line-height: 1.55;
+  font-weight: 400;
+  color: var(--color-paper);
+}
+
+.photo-quote__dash {
+  display: inline-block;
+  font-style: normal;
+  margin-inline: 0.35em;
+}
+
+@media (max-width: 860px) {
+  .photo-quote__inner {
+    grid-template-columns: 1fr;
+    padding-block: var(--space-xl);
+  }
+
+  .photo-quote__photo-frame {
+    max-width: 18rem;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 860px) {
+  .photo-quote__photo-frame {
+    max-width: none;
+    width: 68%;
+  }
+
+  .photo-quote__quote {
+    text-align: center;
+  }
+
+  .photo-quote__quote blockquote {
+    border-left: none;
+    border-block: 1px solid var(--color-accent);
+    padding: var(--space-md) 0;
+  }
+
+  .photo-quote__quote p {
+    font-size: 1.3rem;
+  }
+}

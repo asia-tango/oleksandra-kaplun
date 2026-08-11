@@ -1,0 +1,49 @@
+<nav class="navbar">
+  <div class="navbar__bar">
+    <span class="navbar__name">Oleksandra Kaplun</span>
+
+    <button
+      type="button"
+      class="navbar__burger"
+      [class.is-open]="menuOpen()"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="navbar-menu"
+      aria-label="Menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="navbar__links" id="navbar-menu" [class.is-open]="menuOpen()">
+      <a class="navbar__link" href="#work" (click)="closeMenu()">{{ i18n.dict().nav.work }}</a>
+      <a class="navbar__link" href="#testimonials" (click)="closeMenu()">{{
+        i18n.dict().nav.testimonials
+      }}</a>
+      <a class="navbar__link" href="#contact" (click)="closeMenu()">{{
+        i18n.dict().nav.contact
+      }}</a>
+
+      <div class="navbar__lang" role="group" aria-label="Language">
+        <button
+          type="button"
+          class="navbar__lang-btn"
+          [class.is-active]="i18n.lang() === 'uk'"
+          (click)="i18n.setLang('uk')"
+        >
+          UA
+        </button>
+        <span class="navbar__lang-sep" aria-hidden="true">/</span>
+        <button
+          type="button"
+          class="navbar__lang-btn"
+          [class.is-active]="i18n.lang() === 'en'"
+          (click)="i18n.setLang('en')"
+        >
+          EN
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
