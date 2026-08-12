@@ -4,6 +4,8 @@ Personal portfolio and landing page. One page, scroll-based, built to try out a 
 
 **Live:** https://oleksandra-kaplun.web.app
 
+<img width="1323" height="734" alt="hero-screenshot" src="https://github.com/user-attachments/assets/ca5caa2f-d4cb-4e0c-827c-ae565f46abd2" />
+
 ## Stack
 
 - Angular 21, standalone components, zoneless (no `zone.js` dependency at all)
