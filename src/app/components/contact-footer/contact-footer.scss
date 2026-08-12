@@ -130,6 +130,50 @@
   }
 }
 
+// Left/right entrance for the two-column layout, reusing [appScrollReveal]
+// on .contact__intro / .contact__form (and its .contact__success
+// replacement) instead of the site-wide vertical reveal-base. Neutral by
+// default (always visible, no transform) so nothing changes below this
+// section's own 860px stack breakpoint — only the outer <section>'s
+// existing vertical reveal is visible there, same as before this was
+// added. Scoped to `no-preference` so reduced-motion users at any width
+// never pick up the hidden starting state in the first place.
+.contact__intro,
+.contact__form,
+.contact__success {
+  opacity: 1;
+  transform: none;
+}
+
+@media (min-width: 861px) and (prefers-reduced-motion: no-preference) {
+  .contact__intro {
+    opacity: 0;
+    transform: translateX(-150px);
+    transition:
+      opacity var(--duration-slow) var(--ease-out),
+      transform var(--duration-slow) var(--ease-out);
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .contact__form,
+  .contact__success {
+    opacity: 0;
+    transform: translateX(150px);
+    transition:
+      opacity var(--duration-slow) var(--ease-out),
+      transform var(--duration-slow) var(--ease-out);
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
 @media (min-width: 601px) and (max-width: 860px) {
   .contact__heading {
     font-size: 2.5rem;

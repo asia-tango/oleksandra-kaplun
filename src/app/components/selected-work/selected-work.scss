@@ -29,6 +29,17 @@
   border: 1px solid var(--color-border-on-dark);
   border-radius: var(--radius-md);
   @include mixins.glow-hover;
+
+  // glow-hover's own `transition` shorthand would otherwise fully overwrite
+  // (or be overwritten by) the opacity/transform transition that the global
+  // [appScrollReveal] rule sets for this card's own scroll-reveal — merge
+  // both concerns into one explicit list so neither silently drops out.
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    text-shadow var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
 }
 
 .work__card-name {
@@ -85,5 +96,18 @@
 @media (max-width: 860px) {
   .work__inner {
     padding-block: var(--space-xl);
+  }
+}
+
+// Cards sit in one row on desktop, so their own scroll-reveal triggers fire
+// within a frame of each other — this delay is what turns that into a
+// visible left-to-right stagger. Below 1024px cards stack vertically and
+// already reveal one at a time as the user scrolls to each, so no delay is
+// added there. Scoped to `no-preference` so reduced-motion users never pick
+// up a delay in the first place, rather than having one canceled after the
+// fact.
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .work__card {
+    transition-delay: calc(var(--card-index, 0) * 430ms);
   }
 }

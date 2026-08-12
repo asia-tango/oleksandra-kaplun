@@ -4,7 +4,7 @@
 
     <div class="work__grid">
       @for (item of i18n.dict().work.items; track item.name; let i = $index) {
-        <article class="work__card">
+        <article class="work__card" appScrollReveal [style.--card-index]="i">
           <h3 class="work__card-name">{{ item.name }}</h3>
           <p class="work__card-stack">{{ item.stack }}</p>
           <p class="work__card-fact">{{ item.fact }}</p>
